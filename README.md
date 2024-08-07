@@ -1,21 +1,22 @@
 # ciface
+Library for random success/fail emoji
 
 # Library Installation
-
 - Install the package
 ```bash
 zig fetch --save git+https://github.com/kirillgrachoff/ciface
 ```
 - Add the package in `build.zig`
-```bash
+```zig
 const ciface = b.dependency("ciface", .{});
 exe.root_module.addImport("ciface", cham.module("ciface"));
 ```
 - Import in your project
-```bash
+```zig
 const ciface = @import("ciface");
 ```
 
+# Usage
 ```zig
 var rand: std.Random = ...;
 ciface.getSuccess(rand) // -> Happy face
