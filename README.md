@@ -9,7 +9,7 @@ zig fetch --save git+https://github.com/kirillgrachoff/ciface
 - Add the package in `build.zig`
 ```zig
 const ciface = b.dependency("ciface", .{});
-exe.root_module.addImport("ciface", cham.module("ciface"));
+exe.root_module.addImport("ciface", ciface.module("ciface"));
 ```
 - Import in your project
 ```zig
