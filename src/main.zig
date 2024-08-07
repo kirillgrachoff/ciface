@@ -1,5 +1,5 @@
 const std = @import("std");
-const ciface = @import("root.zig");
+const ciface = @import("ciface");
 const Chameleon = @import("chameleon");
 
 pub fn main() !void {

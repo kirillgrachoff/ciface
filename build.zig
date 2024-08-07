@@ -9,6 +9,10 @@ pub fn build(b: *std.Build) void {
 
     const chameleon = b.dependency("chameleon", .{});
 
+    const ciface_mod = b.addModule("ciface", .{
+        .root_source_file = b.path("src/root.zig"),
+    });
+
     const lib = b.addStaticLibrary(.{
         .name = "ciface",
         .root_source_file = b.path("src/root.zig"),
@@ -26,6 +30,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     exe.root_module.addImport("chameleon", chameleon.module("chameleon"));
+    exe.root_module.addImport("ciface", ciface_mod);
     b.installArtifact(exe);
 
     // This *creates* a Run step in the build graph, to be executed when another
