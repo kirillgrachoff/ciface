@@ -11,6 +11,7 @@ pub fn build(b: *std.Build) void {
 
     // Dependencies
     const chameleon = b.dependency("chameleon", .{});
+    const clap = b.dependency("clap", .{});
 
 
     const target = b.standardTargetOptions(.{});
@@ -25,6 +26,7 @@ pub fn build(b: *std.Build) void {
     });
 
     exe.root_module.addImport("chameleon", chameleon.module("chameleon"));
+    exe.root_module.addImport("clap", clap.module("clap"));
     exe.root_module.addImport("ciface", ciface_mod);
     b.installArtifact(exe);
 
